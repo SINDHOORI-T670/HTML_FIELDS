@@ -126,7 +126,7 @@
                                         @endif
                                         </div>
                                         @endforeach
-                                        <input type="button" name="submit"  style="color:green">
+                                        <input type="button" name="submit" value="Submit" style="color:green">
                                     </form>
                                     @else 
                                         <b styel="color:blue;">No Fields added</b>
