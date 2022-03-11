@@ -8,7 +8,14 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -72,9 +79,9 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
-                        @endif
+                        @endif --}}
                     @endauth
                 </div>
             @endif
@@ -84,15 +91,49 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="card">
+                               
+                                <div class="card-body">
+                                    
+                                    <h2>HTML Form </h2>
+                                    @if(isset($data))
+                                    <form>
+                                        @csrf
+                                        @foreach($data as $item)
+                                        @if($item->field="text")
+                                        <label>{{$item->label}} <strong style="color:red">*</strong></label>
+                                        <input type="{{$item->field}}" name="{{$item->sample}}" class="form-control">
+                                       <br>
+                                        @elseif($item->field="number")
+                                        <label>{{$item->label}} <strong style="color:red">*</strong></label>
+                                        <input type="{{$item->field}}" name="{{$item->sample}}" class="form-control">
+                                       
+                                            <br>
+                                        @elseif($item->field="select")
+
+                                        <label>{{$item->label}} <strong style="color:red">*</strong></label>
+                                        <select class="form-control" name="{{$item->sample}}">
+                                            <option value="0">Select field</option>
+                                            
+                                            @foreach(explode(',',$item->comments) as $key => $item)
+                                             <option value="{{$item}}">{{$item}}</option>
+                                            @endforeach
+                                        </select>
+                                       <br>
+                                        @endif
+                                        </div>
+                                        @endforeach
+                                    </form>
+                                    @else 
+                                        <b styel="color:blue;">No Fields added</b>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
