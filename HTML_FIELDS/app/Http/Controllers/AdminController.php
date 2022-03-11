@@ -73,7 +73,7 @@ class AdminController extends Controller
      } else  {
          $string = '';
         if(isset($request->addmore)){
-            dd($request->addmore);
+            // dd($request->addmore);
             foreach($request->addmore as $a)
             {    
                 foreach($a as $b=>$c)

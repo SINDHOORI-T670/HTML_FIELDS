@@ -69,7 +69,7 @@
                                     @foreach(explode(',',$data->comments) as $key => $item)
                                     <tr>
                                         <td>
-                                            <input type="text" name="addmore[{{$key}}][option]" placeholder="Enter Option" class="form-control" value={{$item}} />&nbsp;
+                                            <input type="text" name="addmore[{{$key}}+1000][option]" placeholder="Enter Option" class="form-control" value={{$item}} />&nbsp;
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-danger remove-tr">Remove</button>

@@ -104,7 +104,7 @@
                                         @csrf
                                         @foreach($data as $item)
                                         @if($item->field="text")
-                                        <label>{{$item->label}} <strong style="color:red">*</strong></label>
+                                        <label>{{$item->label}}</strong></label>
                                         <input type="{{$item->field}}" name="{{$item->sample}}" class="form-control">
                                        <br>
                                         @elseif($item->field="number")
@@ -114,7 +114,7 @@
                                             <br>
                                         @elseif($item->field="select")
 
-                                        <label>{{$item->label}} <strong style="color:red">*</strong></label>
+                                        <label>{{$item->label}}</label>
                                         <select class="form-control" name="{{$item->sample}}">
                                             <option value="0">Select field</option>
                                             
@@ -126,6 +126,7 @@
                                         @endif
                                         </div>
                                         @endforeach
+                                        <input type="button" name="submit"  style="color:green">
                                     </form>
                                     @else 
                                         <b styel="color:blue;">No Fields added</b>
