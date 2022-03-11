@@ -90,7 +90,7 @@ class AdminController extends Controller
              'label' => $request->label,
              'sample' => $request->sample,
              'field' => $request->field,
-             'comments' => isset($solution)? $solution : null
+             'comments' => isset($solution)? $solution : "Nill"
          ];
          Field::where('id',$request->id)->update($data);
          return back()->with('success', 'Record Updated Successfully.');

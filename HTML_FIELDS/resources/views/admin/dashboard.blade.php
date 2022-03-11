@@ -45,7 +45,7 @@
                                   <td> {{$item->label}} </td>
                                   <td> {{$item->sample}} </td>
                                   <td> {{$item->field}} </td>
-                                  <td> {{($item->comments!=0) ? $item->comments : ""}} </td>
+                                  <td> {{isset($item->comments) ? $item->comments : "Nill"}} </td>
                                   <td> 
                                     <ul class="nav">
                                         <li class="nav-item">
